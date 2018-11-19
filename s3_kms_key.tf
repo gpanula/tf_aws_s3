@@ -5,6 +5,9 @@
 # ref: https://www.terraform.io/docs/providers/aws/r/kms_key.html
 
 # ref: https://aws.amazon.com/blogs/security/how-to-prevent-uploads-of-unencrypted-objects-to-amazon-s3/
+# ref: https://stackoverflow.com/questions/50469110/s3-bucket-encryptions-kms-vs-aes256
+# it boils down to use kms if you need to control key rotation and/or audit key usage
+# if you don't then the aes:256 setting for encryption at rest in the s3 bucket will do the same thing
 
 # Decided against a unique per bucket.  If the list of buckets change, this would force a change to the keys
 # you could end up with key being deleted from an existing bucket.  Big headaches.
